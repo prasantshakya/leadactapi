@@ -1,0 +1,25 @@
+[09-Jan-2025 05:43:53 UTC] PHP Warning:  require(/home/pspace/leadactpro.in/api/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:43:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/pspace/leadactpro.in/api/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/pspace/leadactpro.in/api/public/index.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:43:57 UTC] PHP Warning:  require(/home/pspace/leadactpro.in/api/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:43:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/pspace/leadactpro.in/api/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/pspace/leadactpro.in/api/public/index.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:45:06 UTC] PHP Warning:  require(/home/pspace/leadactpro.in/api/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:45:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/pspace/leadactpro.in/api/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/pspace/leadactpro.in/api/public/index.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:45:07 UTC] PHP Warning:  require(/home/pspace/leadactpro.in/api/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:45:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/pspace/leadactpro.in/api/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/pspace/leadactpro.in/api/public/index.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:45:07 UTC] PHP Warning:  require(/home/pspace/leadactpro.in/api/public/vendor/autoload.php): Failed to open stream: No such file or directory in /home/pspace/leadactpro.in/api/public/index.php on line 33
+[09-Jan-2025 05:45:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/pspace/leadactpro.in/api/public/vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/pspace/leadactpro.in/api/public/index.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/pspace/leadactpro.in/api/public/index.php on line 33
