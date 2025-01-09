@@ -54,6 +54,8 @@ public function getallleads(Request $request)
 
         // Build the query based on filters
         $query = Lead::where('created_by', $company_id);
+                
+        $query->where('user_id',  auth()->user()->id);
 
         // Apply filters if available in the request
         if ($request->filled('status_id')) {
