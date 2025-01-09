@@ -12,9 +12,6 @@ class ApiController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
- 
-    
-    
     public function userProfile()
 {
     // Authenticate the user using the current authenticated session
@@ -39,37 +36,75 @@ class ApiController extends Controller
     }
 }
 
-    public function getAllLeads()
+        
+public function getallleads(Request $request)
 {
-    // Get the authenticated user's ID
-    $userId = auth()->id();
+    try {
+        // Check if the user is authenticated
+        if (!auth()->check()) {
+            return response()->json([
+                'success' => '0',
+                'message' => 'Token expired or user not authenticated'
+            ], 401); // Using 401 for Unauthorized errors
+        }
 
-    // Check if the user is authenticated
-    if (!$userId) {
+        // Get the authenticated user's company ID and user ID
+        $company_id = auth()->user()->created_by;
+        $user_id = auth()->user()->id;
+
+        // Build the query based on filters
+        $query = Lead::where('created_by', $company_id);
+
+        // Apply filters if available in the request
+        if ($request->filled('status_id')) {
+            $query->where('status_id', $request->status_id);
+        }
+
+        if ($request->filled('source_id')) {
+            $query->where('sources', $request->source_id);
+        }
+        
+
+        if ($request->filled('substatus_id')) {
+            $query->where('substatus_id', $request->substatus_id);
+        }
+
+        // Fetch the data from the database
+        $data = $query->orderBy('created_at', 'desc')->get();
+
+        // Map the data as per the required format
+        $leaddata = $data->map(function ($lead) {
+            // Extract the last 10 digits of the mobile number and prefix it with +91
+            $formattedMobile = $lead->phone_no ? '+91' . substr($lead->phone_no, -10) : null;
+
+            return [
+                'id' => $lead->id,
+                'name' => $lead->name,
+                'email' => $lead->email,
+                'mobile' => $formattedMobile,
+                'city' => $lead->location,
+                'substatus_name' => $lead->subStatus->name ?? null,
+                'status_name' => $lead->status->name ?? null,
+                'source' => $lead->source->name ?? null,
+                'created_date' => $lead->created_at->format('Y-m-d H:i:s') // Format date as needed
+            ];
+        });
+
+        // Return the mapped data
         return response()->json([
-            'success' => 0,
-            'message' => 'Unauthorized. Please login again.',
-        ], 401); // Return 401 Unauthorized if no user is authenticated
-    }
+            'success' => '1',
+            'message' => 'success',
+            'data' => $leaddata->toArray()
+        ], 200);
 
-    // Fetch the leads associated with the authenticated user's ID
-    $leads = Lead::where('user_id', $userId)->get();
-
-    // Check if any leads are found
-    if ($leads->isEmpty()) {
+    } catch (\Exception $e) {
         return response()->json([
-            'success' => 0,
-            'message' => 'No leads found.',
-        ], 404); // Return 404 if no leads are found
+            'success' => '0',
+            'message' => $e->getMessage()
+        ], 500);
     }
-
-    // Return the leads data
-    return response()->json([
-        'success' => 1,
-        'message' => 'Leads fetched successfully.',
-        'data' => $leads,
-    ]);
 }
 
+      
     
 }
