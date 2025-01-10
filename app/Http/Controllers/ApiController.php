@@ -164,7 +164,6 @@ public function getnotinterested(Request $request)
 
         // Build the query to fetch lead data based on user_id and company_id
         $query = DB::table('leads')->where('user_id', $user_id)->where('created_by', $company_id);
-
         $data['NotinterestedCount'] = (clone $query)->where('status_id', 2)->get();
         // Return the response with data
         return response()->json([
