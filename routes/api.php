@@ -19,4 +19,5 @@ Route::middleware('auth:api')->group(function () {
     Route::get('user-profile', [ApiController::class, 'userProfile']);
     Route::get('data', [ApiController::class, 'getData']); // Replace with actual methods
     Route::get('/getallleads', [ApiController::class, 'getAllLeads']);
+    Route::get('/getnotinterested', [ApiController::class, 'getnotinterested']);
 });
